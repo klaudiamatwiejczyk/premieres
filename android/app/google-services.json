@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1019893961708",
+    "project_id": "premieres3",
+    "storage_bucket": "premieres3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019893961708:android:27cbeb3ff8613af1f6a6c9",
+        "android_client_info": {
+          "package_name": "com.klaudiabak.premieres"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019893961708-vks5e52dndam0hsd3kj6061r9t3n1bej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTFjMV4kwQBek5KX4G7vzl87gvI3yRoV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1019893961708-vks5e52dndam0hsd3kj6061r9t3n1bej.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
