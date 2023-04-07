@@ -40,6 +40,8 @@ dependencies:
   flutterfire_ui: ^0.4.3+20
   cloud_firestore: ^4.5.0
   intl: ^0.17.0
+  get_it: ^7.2.0
+  injectable: ^2.1.1
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +53,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  build_runner: ^2.3.3
+  injectable_generator: ^2.1.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
