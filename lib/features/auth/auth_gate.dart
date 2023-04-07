@@ -21,9 +21,8 @@ class AuthGate extends StatelessWidget {
           );
         }
 
-        return const HomePage(
-          title: '',
-          // currentUser: snapshot.data!,
+        return  HomePage(
+         currentUser: snapshot.data!,
         );
       },
     );
