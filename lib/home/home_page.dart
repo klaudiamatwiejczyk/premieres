@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter_gen/gen_l18n/app_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutterfire_ui/firestore.dart';
 import 'package:premieres/features/auth/user_profile.dart';
 
@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Users collection'),
+        title: Text(AppLocalizations.of(context)!.helloWorld),
         actions: [
           IconButton(
             onPressed: () {
