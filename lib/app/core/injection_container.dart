@@ -5,4 +5,4 @@ import 'injection_container.config.dart';
 final getIt = GetIt.instance;
 
 @InjectableInit()
-void configureDependencies() => $initGetIt(getIt);
+void configureDependencies() => getIt.init();
