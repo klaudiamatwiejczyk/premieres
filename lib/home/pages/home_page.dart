@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterfire_ui/firestore.dart';
 import 'package:premieres/app/core/config.dart';
+import 'package:premieres/features/add/page/add_page.dart';
 import 'package:premieres/features/auth/user_profile.dart';
 
 class HomePage extends StatelessWidget {
@@ -48,12 +48,16 @@ class FirstPage extends StatelessWidget {
           ),
         ],
       ),
-      body: FirestoreListView<Map<String, dynamic>>(
-        query: usersQuery,
-        itemBuilder: (context, snapshot) {
-          Map<String, dynamic> user = snapshot.data();
-          return Text('User name is ${user['displayName']}');
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const AddPage(),
+              fullscreenDialog: true,
+            ),
+          );
         },
+        child: const Icon(Icons.add),
       ),
     );
   }
