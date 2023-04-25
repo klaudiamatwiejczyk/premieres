@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutterfire_ui/firestore.dart';
+import 'package:premieres/app/core/config.dart';
 import 'package:premieres/features/auth/user_profile.dart';
 
 class HomePage extends StatelessWidget {
@@ -17,9 +17,23 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return FirstPage(usersQuery: usersQuery);
+  }
+}
+
+class FirstPage extends StatelessWidget {
+  const FirstPage({
+    super.key,
+    required this.usersQuery,
+  });
+
+  final CollectionReference<Map<String, dynamic>> usersQuery;
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.helloWorld),
+        title: Text(Config.helloMessage),
         actions: [
           IconButton(
             onPressed: () {
