@@ -1,7 +1,6 @@
 import 'package:premieres/features/details/cubit/details_cubit.dart';
 import 'package:premieres/models/item_model.dart';
 import 'package:premieres/repositories/items_repository.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
