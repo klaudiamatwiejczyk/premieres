@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutterfire_ui/auth.dart';
-
-import '../../home/pages/home_page.dart';
+import 'package:premieres/features/home/pages/home_page.dart';
 
 class AuthGate extends StatelessWidget {
   const AuthGate({Key? key}) : super(key: key);
@@ -21,8 +20,8 @@ class AuthGate extends StatelessWidget {
           );
         }
 
-        return  HomePage(
-         currentUser: snapshot.data!,
+        return HomePage(
+          currentUser: snapshot.data!,
         );
       },
     );
