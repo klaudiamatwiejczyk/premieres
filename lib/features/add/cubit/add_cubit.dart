@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'dart:async';
 import 'package:premieres/repositories/items_repository.dart';
 
-
 part 'add_state.dart';
 
 class AddCubit extends Cubit<AddState> {

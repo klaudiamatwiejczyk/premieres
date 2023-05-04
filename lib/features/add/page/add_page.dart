@@ -112,7 +112,7 @@ class _AddPageBody extends StatelessWidget {
           onChanged: onTitleChanged,
           decoration: const InputDecoration(
             border: OutlineInputBorder(),
-            hintText: 'Matrix 5',
+            hintText: 'Dune: Part Two ',
             label: Text('Title'),
           ),
         ),

@@ -53,6 +53,7 @@ class FirstPage extends StatelessWidget {
           ),
         ],
       ),
+      body: const HomePageBody(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(
