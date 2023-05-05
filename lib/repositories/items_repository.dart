@@ -30,6 +30,7 @@ class ItemsRepository {
 
   Future<void> delete({required String id}) {
     final userID = FirebaseAuth.instance.currentUser?.uid;
+
     if (userID == null) {
       throw Exception('User is not logged in');
     }

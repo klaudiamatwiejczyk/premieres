@@ -9,7 +9,7 @@ class Config {
   static String get helloMessage {
     switch (appFlavor) {
       case Flavor.development:
-        return 'Developers version';
+        return 'Upcoming Releases';
       case Flavor.production:
         return 'Users version';
     }
@@ -24,7 +24,6 @@ class Config {
       // stworzyć serwer!
     }
   }
-
 
   static bool get debugShowCheckedModeBanner {
     switch (appFlavor) {
