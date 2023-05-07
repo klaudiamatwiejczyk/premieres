@@ -12,3 +12,4 @@ At the moment this is a test version of the application, in the future I plan to
 - Movie trailers - possibility to watch and comment together with other users
 
 
+![gif1](https://user-images.githubusercontent.com/124779049/236427854-ac94f1da-894c-4cce-b17e-727917a98ed8.gif)
