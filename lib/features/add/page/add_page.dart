@@ -21,7 +21,8 @@ class _AddPageState extends State<AddPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AddCubit(ItemsRepository()),
+      create: (context) => AddCubit(
+          ItemsRepository(), UselessfactsRepository(), UselessfactsModel()),
       child: BlocListener<AddCubit, AddState>(
         listener: (context, state) {
           if (state.saved) {

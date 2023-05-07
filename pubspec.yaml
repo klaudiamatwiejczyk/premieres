@@ -47,6 +47,8 @@ dependencies:
   gif: ^2.2.0
   flutter_gif: ^0.0.4
   flutter_gifimage: ^1.0.1
+  dio: ^5.1.1
+  meta: ^1.8.0
 
 dev_dependencies:
   flutter_test:

@@ -9,3 +9,16 @@ class AddState {
   final bool saved;
   final String errorMessage;
 }
+
+class Uselessfacts {
+  const Uselessfacts({
+    this.model,
+    this.status = Status.initial,
+    this.errorMessage,
+  });
+  final UselessfactsModel? model;
+  final Status status;
+  final String? errorMessage;
+}
+
+class UselessfactsModel {}
