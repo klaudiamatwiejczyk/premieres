@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:premieres/app/core/injection_container.dart';
 import 'package:premieres/features/auth/auth_gate.dart';
 import 'firebase_options.dart';
+import 'package:get_it/get_it.dart';
+import 'package:http/http.dart' as http;
+import 'package:premieres/features/add/cubit/add_cubit.dart';
+import 'package:premieres/repositories/uselessfacts_repository.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,6 +14,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  setupDependencyInjection();
   runApp(const MyApp());
 }
 
@@ -24,4 +29,16 @@ class MyApp extends StatelessWidget {
       home: const AuthGate(),
     );
   }
+}
+
+void setupDependencyInjection() {
+  final getIt = GetIt.instance;
+
+  getIt.registerLazySingleton<http.Client>(() => http.Client());
+
+  getIt.registerLazySingleton<UselessFactsRepository>(
+      () => UselessFactsRepository(getIt<http.Client>()));
+
+  getIt.registerFactory<AddFactsCubit>(
+      () => AddFactsCubit(getIt<UselessFactsRepository>()));
 }

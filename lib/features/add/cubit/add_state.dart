@@ -10,6 +10,18 @@ class AddState {
   final String errorMessage;
 }
 
+class AddInitial extends AddState {}
+
+class AddLoaded extends AddState {
+  AddLoaded(this.fact);
+  final String fact;
+}
+
+class AddError extends AddState {
+  AddError(this.message);
+  final String message;
+}
+
 class Uselessfacts {
   const Uselessfacts({
     this.model,

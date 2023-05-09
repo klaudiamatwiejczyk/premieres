@@ -3,6 +3,8 @@ import 'package:premieres/repositories/items_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:premieres/repositories/uselessfacts_repository.dart';
+import 'package:http/http.dart' as http;
 
 class AddPage extends StatefulWidget {
   const AddPage({
@@ -22,7 +24,7 @@ class _AddPageState extends State<AddPage> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AddCubit(
-          ItemsRepository(), UselessfactsRepository(), UselessfactsModel()),
+          ItemsRepository(), UselessFactsRepository(http.Client())),
       child: BlocListener<AddCubit, AddState>(
         listener: (context, state) {
           if (state.saved) {
