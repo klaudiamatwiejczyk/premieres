@@ -3,7 +3,8 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-const String _baseUrl = 'https://uselessfacts.jsph.pl';
+const String _baseUrl =
+    'https://uselessfacts.jsph.pl/api/v2/facts/today?language=en';
 
 class UselessFactsApiClient {
   final http.Client client;
@@ -18,7 +19,8 @@ class UselessFactsApiClient {
 class UselessFactsRepository {
   final UselessFactsApiClient _apiClient;
 
-  UselessFactsRepository(http.Client client, {
+  UselessFactsRepository(
+    http.Client client, {
     UselessFactsApiClient? apiClient,
   }) : _apiClient = apiClient ?? UselessFactsApiClient(client);
 
@@ -32,11 +34,23 @@ class UselessFactsRepository {
     }
   }
 
+  Future<String> fetchRandomFact() async {
+    final response = await http.get(Uri.parse(
+        'https://uselessfacts.jsph.pl/api/v2/facts/today?language=en'));
+
+    if (response.statusCode == 200) {
+      final jsonResponse = json.decode(response.body);
+      final fact = jsonResponse['fact'];
+      return fact;
+    } else {
+      throw Exception('Failed to fetch random fact');
+    }
+  }
+
   Future<http.Response> get(Uri url) async {
     return _apiClient.get(url);
   }
 }
-
 
 class Uselessfacts {
   Future<Map<String, dynamic>?> getUselessfacts({

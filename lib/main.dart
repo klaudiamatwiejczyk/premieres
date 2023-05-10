@@ -7,6 +7,7 @@ import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 import 'package:premieres/repositories/uselessfacts_repository.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
@@ -38,4 +39,6 @@ void setupDependencyInjection() {
 
   getIt.registerLazySingleton<UselessFactsRepository>(
       () => UselessFactsRepository(getIt<http.Client>()));
+      
+   
 }

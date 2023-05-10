@@ -41,41 +41,7 @@ class AddCubit extends Cubit<AddState> {
       throw Exception('Failed to fetch useless fact');
     }
   }
+
+ 
 }
-
-
-// class AddFactsCubit extends Cubit<AddState> {
-//   final UselessFactsRepository _repository;
-//   static const String _baseUrl = 'https://uselessfacts.jsph.pl';
-//   AddFactsCubit(this._repository) : super(AddInitial());
-
-//   Future<void> start() async {
-//     try {
-//       final fact = await _repository.getUselessFact();
-//       emit(AddLoaded(fact));
-//     } catch (error) {
-//       emit(AddError('Failed to load fact: $error'));
-//     }
-//   }
-
-//   Future<String> getUselessFact() async {
-//     final response = await _repository.get(Uri.parse('$_baseUrl/random'));
-//     if (response.statusCode == 200) {
-//       final jsonResponse = json.decode(response.body);
-//       return jsonResponse['data'];
-//     } else {
-//       throw Exception('Failed to load fact');
-//     }
-//   }
-
-  // Future<void> addFact() async {
-  //   emit(AddState.loading());
-  //   try {
-  //     final fact = await UselessFactsApiClient().getTodayFact();
-  //     final addedFact = await _uselessFactsRepository.addFact(fact);
-  //     emit(AddState.success(addedFact));
-  //   } catch (e) {
-  //     emit(AddState.error());
-  //   }
-  // }
 
