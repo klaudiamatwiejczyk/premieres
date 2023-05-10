@@ -1,25 +1,29 @@
 part of 'add_cubit.dart';
 
 class AddState {
+  final bool saved;
+  final String? errorMessage;
+  final String? uselessFact;
+
   const AddState({
     this.saved = false,
-    this.errorMessage = '',
+    this.errorMessage,
+    this.uselessFact,
   });
-
-  final bool saved;
-  final String errorMessage;
 }
 
 class AddInitial extends AddState {}
 
 class AddLoaded extends AddState {
-  AddLoaded(this.fact);
   final String fact;
+
+  const AddLoaded(this.fact) : super(uselessFact: fact);
 }
 
 class AddError extends AddState {
-  AddError(this.message);
-  final String message;
+  final String error;
+
+  const AddError(this.error) : super(errorMessage: error);
 }
 
 class Uselessfacts {

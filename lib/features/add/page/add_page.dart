@@ -23,17 +23,17 @@ class _AddPageState extends State<AddPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AddCubit(
-          ItemsRepository(), UselessFactsRepository(http.Client())),
+      create: (context) =>
+          AddCubit(ItemsRepository(), UselessFactsRepository(http.Client())),
       child: BlocListener<AddCubit, AddState>(
         listener: (context, state) {
           if (state.saved) {
             Navigator.of(context).pop();
           }
-          if (state.errorMessage.isNotEmpty) {
+          if (state.errorMessage?.isNotEmpty == true) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text(state.errorMessage),
+                content: Text(state.errorMessage!),
                 backgroundColor: Colors.red,
               ),
             );
@@ -103,6 +103,8 @@ class _AddPageBody extends StatelessWidget {
   final Function(DateTime?) onDateChanged;
   final String? selectedDateFormatted;
 
+  
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -143,6 +145,18 @@ class _AddPageBody extends StatelessWidget {
           },
           child: Text(selectedDateFormatted ?? 'Choose release date'),
         ),
+        BlocBuilder<AddCubit, AddState>(
+  builder: (context, state) {
+    if (state is AddLoaded) {
+      return Text(state.fact);
+    } else if (state is AddError) {
+      return Text('Failed to load fact: ${state.errorMessage}');
+    } else {
+      return const CircularProgressIndicator();
+    }
+  },
+),
+
       ],
     );
   }
